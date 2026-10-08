@@ -1,8 +1,13 @@
+
+---
+
+## 📄 FILE 4: `app.py` (Complete Working File)
+
+```python
 """
 AI Workplace Productivity Assistant
 Built with Streamlit + Google Gemini
 Capaciti AI Skill Accelerator Programme
-Single-file complete application.
 """
 
 import os
@@ -13,9 +18,9 @@ import streamlit as st
 import pandas as pd
 import google.generativeai as genai
 
-# ==================================================================
+# ==============================================================
 # PAGE CONFIG
-# ==================================================================
+# ==============================================================
 st.set_page_config(
     page_title="AI Workplace Productivity Assistant",
     page_icon="🤖",
@@ -23,9 +28,9 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ==================================================================
+# ==============================================================
 # RESPONSIBLE AI TEXT
-# ==================================================================
+# ==============================================================
 DISCLAIMER = """
 > ⚠️ **Responsible AI Notice**
 > This assistant uses Google Gemini. Outputs may contain inaccuracies,
@@ -40,9 +45,9 @@ BIAS_WARNING = """
 > Verify all factual claims independently.
 """
 
-# ==================================================================
+# ==============================================================
 # GEMINI HELPERS
-# ==================================================================
+# ==============================================================
 def get_api_key() -> str:
     """Read API key from Streamlit secrets, env, or sidebar."""
     if st.session_state.get("api_key"):
@@ -54,7 +59,7 @@ def get_api_key() -> str:
 
 
 def call_gemini(system_prompt: str, user_prompt: str, temperature: float = 0.4) -> str:
-    """Send a prompt to Gemini and return text."""
+    """Send a prompt to Gemini and return the text response."""
     api_key = get_api_key()
     if not api_key:
         return "⚠️ No Gemini API key configured. Add it in the sidebar or Streamlit secrets."
@@ -94,9 +99,9 @@ def extract_json(raw: str):
             return None
 
 
-# ==================================================================
+# ==============================================================
 # SIDEBAR
-# ==================================================================
+# ==============================================================
 with st.sidebar:
     st.title("🤖 AI Productivity Assistant")
     st.caption("Powered by Google Gemini")
@@ -137,9 +142,9 @@ with st.sidebar:
         st.success("Chat cleared.")
 
 
-# ==================================================================
+# ==============================================================
 # HOME
-# ==================================================================
+# ==============================================================
 if module == "🏠 Home":
     st.title("🤖 AI Workplace Productivity Assistant")
     st.markdown(
@@ -162,9 +167,9 @@ if module == "🏠 Home":
     st.info("👉 Add your Gemini API key in the sidebar, then choose a module.")
 
 
-# ==================================================================
+# ==============================================================
 # 1. AI RESUME BUILDER
-# ==================================================================
+# ==============================================================
 elif module == "📄 AI Resume Builder":
     st.title("📄 AI Resume Builder")
     st.markdown(DISCLAIMER)
@@ -339,9 +344,9 @@ ul {{ line-height:1.6; }}
                 )
 
 
-# ==================================================================
+# ==============================================================
 # 2. SMART EMAIL GENERATOR
-# ==================================================================
+# ==============================================================
 elif module == "✉️ Smart Email Generator":
     st.title("✉️ Smart Email Generator")
     st.markdown(DISCLAIMER)
@@ -385,9 +390,9 @@ Rules:
         st.markdown(BIAS_WARNING)
 
 
-# ==================================================================
+# ==============================================================
 # 3. MEETING NOTES SUMMARIZER
-# ==================================================================
+# ==============================================================
 elif module == "📝 Meeting Notes Summarizer":
     st.title("📝 Meeting Notes Summarizer")
     st.markdown(DISCLAIMER)
@@ -457,9 +462,9 @@ Notes:
                 )
 
 
-# ==================================================================
+# ==============================================================
 # 4. AI TASK PLANNER
-# ==================================================================
+# ==============================================================
 elif module == "📅 AI Task Planner":
     st.title("📅 AI Task Planner")
     st.markdown(DISCLAIMER)
@@ -519,9 +524,9 @@ Return a JSON object with:
                     st.markdown(f"- **{r.get('risk')}** → {r.get('mitigation')}")
 
 
-# ==================================================================
+# ==============================================================
 # 5. AI RESEARCH ASSISTANT
-# ==================================================================
+# ==============================================================
 elif module == "🔎 AI Research Assistant":
     st.title("🔎 AI Research Assistant")
     st.markdown(DISCLAIMER)
@@ -574,9 +579,9 @@ Return a JSON object with:
             st.markdown(BIAS_WARNING)
 
 
-# ==================================================================
+# ==============================================================
 # 6. AI WORKPLACE CHATBOT
-# ==================================================================
+# ==============================================================
 elif module == "💬 AI Workplace Chatbot":
     st.title("💬 AI Workplace Chatbot")
     st.markdown(DISCLAIMER)

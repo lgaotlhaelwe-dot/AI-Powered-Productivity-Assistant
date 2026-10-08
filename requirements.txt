@@ -1,0 +1,18 @@
+# AI Frameworks & API Clients
+openai>=1.0.0
+google-generativeai>=0.3.0
+
+# UI Framework & Web Server
+streamlit>=1.28.0
+
+# Data Validation & Parsing
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Document & Export Handling
+fpdf2>=2.7.5
+python-docx>=0.8.11
+
+# HTTP & Async Requests
+requests>=2.31.0
+httpx>=0.25.0
